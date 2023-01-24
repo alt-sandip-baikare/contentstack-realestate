@@ -1,0 +1,51 @@
+
+
+$theme-colors: (
+  'primary': #6f42c1,
+  'secondary': #833bec,
+  'success': #1ce1ac,
+  'info': #ff7d50,
+  'warning': #ffbe0b,
+  'danger': #f44336,
+  'light': #c0ccda,
+  'dark': #001738,
+  'grary': #adb5bd,
+  'cyan': #0dcaf0,
+  'green':#198754,
+  'orange': #fd7e14,
+  'pink': #d63384,
+  'indigo': #6610f2
+  );
+
+  @import "bootstrap/scss/functions";
+  @import "bootstrap/scss/variables";
+  @import "bootstrap/scss/maps";
+  @import "bootstrap/scss/utilities";
+
+  
+  $utilities: map-merge(
+    $utilities,
+    (
+    "width": (
+      property: width,
+      class: w,
+      responsive: true,
+      values: (
+        0: 0%,
+        10: 10%,
+        20: 20%,
+        30: 30%,
+        40: 40%,
+        50: 50%,
+        60: 60%,
+        70: 70%,
+        80: 80%,
+        90: 90%,
+        100: 100%,
+      )
+    )
+    )
+   );
+
+@import '../custom.scss';
+@import '/node_modules/bootstrap/scss/bootstrap.scss';
