@@ -10,12 +10,8 @@ import { getFeaturedProps } from '@/sdk-plugins/index'
 import { getFeaturedProperties } from '@/sdk-plugins/util'
 
 
-const inter = Inter({ subsets: ['latin'] })
-
-export default function Home({pagedata}) {
-  const [featured, setFeatured]  = useState([]) 
-  console.log("🚀 ~ file: Home.js:17 ~ Home ~ featured", featured)
-  
+export default function Home({pagedata, navitems}) {
+  const [featured, setFeatured]  = useState([])   
   
   useEffect( () => {
     const featuredProperties = getFeaturedProperties()
@@ -26,7 +22,7 @@ export default function Home({pagedata}) {
   return (
     <>
       <main className={styles.main}>
-      <Layout >
+      <Layout navitems={navitems} >
           <Banner bannerdata={pagedata.banner[0]}/>
           
           <ListingSection heading="Featured Listing" link="/">

@@ -66,7 +66,7 @@ export default function LeadForm({ propID }) {
           placeholder="Enter your full name"
           {...register("title", { required: true })}
         />
-        {errors.fullname?.type === "required" && (
+        {errors.title?.type === "required" && (
           <p role="alert" className="text-danger small">
             Full name is required
           </p>

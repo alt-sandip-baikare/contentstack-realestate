@@ -9,10 +9,10 @@ import Link from "next/link";
 import Head from "next/head";
 import Seo from "@/components/Elements/Seo";
 
-function details({ property, slug }) {
+function details({ property, navigation }) {
   
   return (
-    <Layout>
+    <Layout navitems={navigation}>
       <Head>
         <title> { property.title } - Real Estate </title>
         <Seo seoData={property.seo[0]} />
@@ -86,6 +86,12 @@ export async function getServerSideProps({ params }) {
     ['seo'],
     "en-us"
   );
+  const navitems = await Stack.getSpecificEntryKeyValue(
+    "navigation_menu",
+    "menu_location",
+    "header",
+    "en-us"
+  );
   // 404 if we does not found the data in API response
   if (!result.length) {
     return {
@@ -97,6 +103,7 @@ export async function getServerSideProps({ params }) {
     props: {
       property: result[0],
       slug: slug,
+      navigation: navitems[0],
     },
   };
 }

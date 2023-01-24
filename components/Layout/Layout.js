@@ -2,10 +2,10 @@ import React from 'react'
 import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
 
-function Layout( {children} ) {
+function Layout( {navitems, children} ) {
   return (
     <>
-        <Header />
+        <Header navitems={navitems || []}/>
             {children}
         <Footer />
     </>

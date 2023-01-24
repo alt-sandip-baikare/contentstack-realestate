@@ -6,7 +6,8 @@ import { getFeaturedProperties } from '@/sdk-plugins/util';
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function HomePage( {data} ) {
+export default function HomePage( {data, navigation} ) {
+  // console.log("🚀 ~ file: index.js:10 ~ HomePage ~ navigation", navigation)
   return (
     <>
       <Head>
@@ -16,19 +17,24 @@ export default function HomePage( {data} ) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <Home pagedata={data[0]} />
+      <Home pagedata={data[0]} navitems={navigation} />
     </>
   )
 }
 
 export async function getStaticProps() {
   const result = await Stack.getEntryWithRef('home', ['banner', 'sections'], 'en-us');
-  // console.log("🚀 ~ file: index.js:24 ~ getStaticProps ~ result", result)
-  // const featuredProperties = await getFeaturedProperties()
+  const navitems = await Stack.getSpecificEntryKeyValue(
+    "navigation_menu",
+    "menu_location",
+    "header",
+    "en-us"
+  );
   
   return {
     props: {
       data: result[0],
+      navigation: navitems[0]
       // featuredProps : featuredProperties[0]
     }
   }

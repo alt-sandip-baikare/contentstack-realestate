@@ -9,19 +9,19 @@ const Stack =
         region: process.env.REGION ? process.env.REGION : "us",
         // Start of Fetchoptions are development purpose only
         // Comment out if you are on production server
-        fetchOptions: {
-          debug: true,
-          logHandler: (level, data) => {
-            if (level === "error" && data) {
-              const title = [data.name, data.message]
-                .filter((a) => a)
-                .join(" - ");
-              console.error(`[error] ${title}`);
-              return;
-            }
-            console.log(`[${level}] ${data}`);
-          },
-        },
+        // fetchOptions: {
+        //   debug: true,
+        //   logHandler: (level, data) => {
+        //     if (level === "error" && data) {
+        //       const title = [data.name, data.message]
+        //         .filter((a) => a)
+        //         .join(" - ");
+        //       console.error(`[error] ${title}`);
+        //       return;
+        //     }
+        //     console.log(`[${level}] ${data}`);
+        //   },
+        // },
         // End of Fetchoptions
       })
     : "";
@@ -86,6 +86,23 @@ export default {
       );
     });
   },
+  getSpecificEntryKeyValue(ctUid, entryKey, entryValue, locale) {
+    return new Promise((resolve, reject) => {
+      const blogQuery = Stack.ContentType(ctUid)
+        .Query()
+        .language(locale)
+        .toJSON();
+      const data = blogQuery.where(`${entryKey}`, `${entryValue}`).find();
+      data.then(
+        (result) => {
+          resolve(result[0]);
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    });
+  },
   getSpecificEntryWihtRef(ctUid, entryUrl, ref, locale) {
     return new Promise((resolve, reject) => {
       const blogQuery = Stack.ContentType(ctUid)
@@ -110,34 +127,33 @@ export default {
     let skip = 0;
 
     return new Promise((resolve, reject) => {
-      const blogQuery = Stack.ContentType(ctUid)
-        .Query();
+      const blogQuery = Stack.ContentType(ctUid).Query();
 
-        blogQuery
+      blogQuery
         // .greaterThan('price', 1000)
         .includeCount()
-        .search('Luxury')
+        .search("Luxury")
         // .addParam('include_count', 'true')
         // .where('price',230000)
         .find()
         .then(
-        (result) => {
-          resolve(result[0]);
-        },
-        (error) => {
-          reject(error);
-        }
-      );
+          (result) => {
+            resolve(result[0]);
+          },
+          (error) => {
+            reject(error);
+          }
+        );
     });
   },
   // ajsdl
   getFeaturedProps(ctUid, value, ref, locale) {
     return new Promise((resolve, reject) => {
       const blogQuery = Stack.ContentType(ctUid)
-      .Query()
-      .language(locale)
-      .includeReference(ref)
-      .toJSON();
+        .Query()
+        .language(locale)
+        .includeReference(ref)
+        .toJSON();
       const data = blogQuery.where("is_featured", value).find();
       data.then(
         (result) => {

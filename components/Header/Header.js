@@ -1,11 +1,11 @@
 import Navbar from './Navbar/Navbar'
 import Style from './Header.module.scss'
 
-function Header() {
+function Header({navitems}) {
   
   return (
     <header className={Style.header}>
-        <Navbar />
+        <Navbar navitems={navitems}/>
     </header>
   )
 }

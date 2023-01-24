@@ -5,12 +5,12 @@ import PropertyCard from "@/components/Property/PropertyCard";
 import FilterForm from "@/components/Property/Filter/FilterForm";
 import Card from "@/components/Elements/Card";
 
-function Property({properties}) {
+function Property({properties, navigation}) {
 
   const [props, setProperties] = useState(properties)
 
   return (
-    <Layout>
+    <Layout navitems={navigation}>
       <div className="container">
         <div className="row py-3">
           <div className="col-md-3 border-2">          
@@ -46,10 +46,17 @@ export async function getStaticProps({ params }) {
     "properties",
     "en-us"
   );
+  const navitems = await Stack.getSpecificEntryKeyValue(
+    "navigation_menu",
+    "menu_location",
+    "header",
+    "en-us"
+  );
 
   return {
     props: {
         properties: result[0],
+        navigation: navitems[0],
     },
   };
 }

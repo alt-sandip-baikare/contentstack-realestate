@@ -18,7 +18,7 @@ function PropertyCard({ property }) {
           />
           <div className="card-body">
             <Link href={"/properties" + property.url}>
-              <h3 className="text-primary mb-0 h5">{property.title}</h3>
+              <h3 className="text-primary mb-0 h6">{property.title}</h3>
             </Link>
 
             <div className="small mt-2 text-gray-800 fw-500">

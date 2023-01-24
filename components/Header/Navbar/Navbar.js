@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import NavItem from "./NavItem";
+import Stack from "@/sdk-plugins/index";
+import { getSpecificEntryKeyValue } from "@/sdk-plugins/index";
 
 // const menu = [
 //   { lable: "Home", link: "/" },
@@ -15,15 +17,8 @@ import NavItem from "./NavItem";
 //   { lable: "Signup", link: "/signup", icon: "fa fa-user-plus" },
 // ];
 
-function Navbar() {
-  const [menu, setMenu] = useState(false)
-  const [rightMenu, setRightmenu] = useState(false)
-
-  const router = useRouter();
-
-  useEffect(() => {
-      
-  }, [])
+function Navbar({navitems}) {
+  
 
   return (
     <>
@@ -48,14 +43,14 @@ function Navbar() {
               className="collapse navbar-collapse"
               id="navbarSupportedContent"
             >
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                {menu &&
-                  menu.map((link, index) => (
+              <ul id="header-nav" className=" navbar-nav me-auto mb-2 mb-lg-0">
+                {navitems.navigation_items &&
+                  navitems.navigation_items.map((link, index) => (
                    <NavItem key={index} item={link} />
                   ))}
               </ul>
               <ul className="navbar-nav mb-2 mb-lg-0">
-                {rightMenu &&
+                {/* {rightMenu &&
                   rightMenu.map((link, index) => (
                     <li
                       key={index}
@@ -73,7 +68,7 @@ function Navbar() {
                         <span className="mx-1">{link.lable}</span>
                       </Link>
                     </li>
-                  ))}
+                  ))} */}
               </ul>
             </div>
           </div>

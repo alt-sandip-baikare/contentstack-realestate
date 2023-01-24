@@ -3,17 +3,19 @@ import React from "react";
 import Link from "next/link";
 
 function NavItem({ item }) {
-  const router = useRouter();
+  const { pathname } = useRouter();
   return (
     <>
       <li
         className={
-          router.asPath === item.link ? "nav-item active" : "nav-item "
+          pathname === item.link_url.href 
+          ? "nav-item active" 
+          : "nav-item "
         }
       >
-        <Link className="nav-link text-white fw-bold" href={item.link}>
+        <Link className="nav-link text-white fw-bold" href={item.link_url.href}>
           {item.icon ? <i className={item.icon}></i> : null}
-          <span className={item.icon ? "mx-1" : ""}>{item.lable}</span>
+          <span className={item.icon ? "mx-1" : ""}>{item.link_url.title}</span>
         </Link>
       </li>
     </>

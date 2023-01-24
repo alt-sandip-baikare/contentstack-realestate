@@ -2,6 +2,7 @@
 body {
     font-family: 'Roboto', sans-serif !important;
     position: relative;
+    font-weight: 300 !important;
   }
 .bg-img-cover {
     background-position: center;
@@ -22,4 +23,19 @@ body {
 }
 .border-radius-0 {
     border-radius: 0 !important;
+}
+#header-nav li{
+    &:hover a,
+    &.active a{
+        border-bottom: 2px solid #fff;
+    }
+}
+.carousel-control-prev, 
+.carousel-control-next {
+    width: 5% !important;
+    background-color: rgba(0,0,0,0.6) !important;
+}
+.h1, h2, h3, h4, h5, h6 {
+    text-transform: uppercase;
+    font-weight: 800 !important;
 }
