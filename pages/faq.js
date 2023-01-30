@@ -53,7 +53,7 @@ function Faq({ page, navigation }) {
 export default Faq;
 
 export async function getStaticProps() {
-  const result = await Stack.getEntryWithRef("faq", ["seo"], "en-us");
+  const result = await Stack.getEntryWithRef("faq", [], "en-us");
   const navitems = await Stack.getSpecificEntryKeyValue(
     "navigation_menu",
     "menu_location",

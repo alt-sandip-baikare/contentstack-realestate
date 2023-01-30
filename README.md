@@ -1,4 +1,17 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is real estate project I have created for POC to integrate the Contactstack with NextJS.
+This project covers most of the fields provided in Contactstack and tried to integrate that with the frontend.
+
+## Tech Stack
+- Contactstack Headless CMS (Backend)
+- NextJS - 13.1.2 (Frontend)
+- Bootstrap - 5.2 (UI)
+
+## About Contenstack
+
+Contentstack is a headless CMS that touts itself a platform that can build the best digital experience for web, mobile, IoT, AR and VR." It was crafted by Built.io, the vendor behind an API-first enterprise suite of products including Flow, a Platform-as-a-Service, Backend, a Mobile-Backend-as-a-Service, and Contentstack, the headless CMS
+
+For more information you can read the [contenstack documentation](https://www.contentstack.com/docs/)
+
 
 ## Getting Started
 
@@ -11,16 +24,30 @@ yarn dev
 # or
 pnpm dev
 ```
+## NextJS
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+Open [http://localhost:3010](http://localhost:3010) with your browser to see the result.
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+## Screenshots
+#### Home Page
+![Home Page]( ./public/Home.png?raw=true "Home Page")
+
+#### Properties
+![All-Properties]( ./public/All-Properties.png?raw=true "All-Properties")
+
+
+#### Properties Details
+![Real-Estate-Details-page]( ./public/Sunshine-Paradise-Real-Estate-Details-page.png?raw=true "Real-Estate-Details-page")
+
+#### About
+![About Page]( ./public/About.png?raw=true "About Page")
 
 ## Learn More
 

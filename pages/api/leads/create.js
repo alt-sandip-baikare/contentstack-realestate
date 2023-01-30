@@ -9,14 +9,14 @@ export default async function handler(req, res) {
           api_key: `${process.env.API_KEY}`,
           branch: `${process.env.SUBMISSION_BRANCH}`,
           authtoken: `${process.env.DELIVERY_TOKEN}`,
-          authorization: `${process.env.AUTHORIZATION}`,
+          authorization: `${process.env.AUTHORIZATION}`, // management token
         },
         body: JSON.stringify({
           entry: body,
         }),
       };
       const response = await fetch(
-        "https://api.contentstack.io/v3/content_types/leads/entries?locale=en-us&include_branch=false",
+        "https://api.contentstack.io/v3/content_types/leads/entries?locale=en-us&include_branch=true",
         options
       );
       const data = await response.json();
