@@ -24,7 +24,6 @@ function Property({properties, navigation}) {
           <div className="col-md-9">
             <h1 className="h3 text-uppercase fw-bold"> Property Listing </h1>
             <div className="property-listing row">
-                {/* {JSON.stringify(properties)} */}
                 { 
                     props && 
                     props.map( (property, index) =>

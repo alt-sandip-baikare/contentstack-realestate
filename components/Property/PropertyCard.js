@@ -6,19 +6,21 @@ import ArrowRight from "../Icons/ArrowRight";
 function PropertyCard({ property }) {
   return (
     <>
-      <div className="col-md-4 mb-3">
-        <div className="card lift h-100 text-gray-800" href="#!">
-          <div className="prop-badge">{property?.property_type}</div>
-          <Image
-            className="card-img-top"
-            src={property.images[0].url}
-            alt="..."
-            width="800"
-            height="220"
-          />
+      <div className="col-md-4 mb-3 ">
+        <div className="card lift h-100 text-gray-800 property-card" href="#!">
+            <div className="prop-badge">{property?.property_type}</div>
+          <div className="property-card-inner">
+              <Image
+                className="card-img-top"
+                src={property.images[0].url}
+                alt="..."
+                width="800"
+                height="220"
+              />
+          </div>
           <div className="card-body">
             <Link href={"/properties" + property.url}>
-              <h3 className="text-primary mb-0 h6">{property.title}</h3>
+              <h3 className="mb-0 h6">{property.title}</h3>
             </Link>
 
             <div className="small mt-2 text-gray-800 fw-500">

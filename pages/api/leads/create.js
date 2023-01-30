@@ -23,7 +23,7 @@ export default async function handler(req, res) {
       if(response.status == 201){
         res.status(201).json(data);
       }else{
-        res.status(400).json({error: data.error, message: "Error while processing, please try again."});
+        res.status(400).json({error: data.error, data, message: "Error while processing, please try again."});
       }
 
     } catch (e) {

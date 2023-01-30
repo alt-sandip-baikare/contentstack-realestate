@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,500&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200&display=swap');
 body {
     font-family: 'Roboto', sans-serif !important;
     position: relative;
     font-weight: 300 !important;
+    color: #191919;
   }
 .bg-img-cover {
     background-position: center;
@@ -39,3 +41,36 @@ body {
     text-transform: uppercase;
     font-weight: 800 !important;
 }
+.brand-logo {
+    border: 2px solid #fff;
+    padding: 5px 10px;
+}
+
+// Property Card
+.property-card {
+    a{
+        color: #191919;
+        text-decoration: none;
+        &:hover{
+            color: var( --bs-primary );
+        }
+    }
+    .prop-badge{
+        z-index: 9999;
+    }
+    .property-card-inner{
+       overflow: hidden;
+        img {
+            width: 100%;
+            -webkit-transition: all 0.5s ease 0s;
+            transition: all 0.5s ease 0s;
+        }
+        &:hover img {
+            -webkit-transform: scale(1.15);
+            transform: scale(1.15);
+        }
+   }
+}
+
+
+// Single Property Page

@@ -2,12 +2,10 @@ import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import Home from '@/components/Home/Home'
 import Stack from "../sdk-plugins/index";
-import { getFeaturedProperties } from '@/sdk-plugins/util';
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function HomePage( {data, navigation} ) {
-  // console.log("🚀 ~ file: index.js:10 ~ HomePage ~ navigation", navigation)
+export default function HomePage( {data, navigation, featuredProps} ) {
   return (
     <>
       <Head>
@@ -17,7 +15,7 @@ export default function HomePage( {data, navigation} ) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <Home pagedata={data[0]} navitems={navigation} />
+      <Home pagedata={data[0]} navitems={navigation} featured={featuredProps} />
     </>
   )
 }
@@ -30,12 +28,15 @@ export async function getStaticProps() {
     "header",
     "en-us"
   );
+  const featuredProps = await fetch(`${process.env.NEXT_PUBLIC_APP_BASE_URL}/api/property/featured-properties`);
+  const properties = await featuredProps.json();
+  console.log("🚀 ~ file: index.js:33 ~ getStaticProps ~ properties", properties)
   
   return {
     props: {
       data: result[0],
-      navigation: navitems[0]
-      // featuredProps : featuredProperties[0]
+      navigation: navitems[0],
+      featuredProps : properties.data
     }
   }
 }

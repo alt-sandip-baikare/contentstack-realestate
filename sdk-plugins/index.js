@@ -147,14 +147,16 @@ export default {
     });
   },
   // ajsdl
-  getFeaturedProps(ctUid, value, ref, locale) {
+  getFeaturedProps(ctUid, ref, locale) {
     return new Promise((resolve, reject) => {
       const blogQuery = Stack.ContentType(ctUid)
         .Query()
         .language(locale)
         .includeReference(ref)
         .toJSON();
-      const data = blogQuery.where("is_featured", value).find();
+      let data = blogQuery.where("is_featured", true)
+
+      data = data.limit(3).find();
       data.then(
         (result) => {
           resolve(result[0]);

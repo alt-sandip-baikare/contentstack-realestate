@@ -3,9 +3,12 @@ import Layout from "@/components/Layout/Layout";
 import Stack from "@/sdk-plugins/index";
 import Banner from "@/components/Home/Banner/Banner";
 import TwoColumnSection from "@/components/Elements/TwoColumnSection";
+import { jsonToHtml } from "@contentstack/json-rte-serializer";
+
 
 function About({ page, navigation }) {
-  console.log("🚀 ~ file: about.js:8 ~ About ~ page", page)
+
+  const pageContent = jsonToHtml(page.content)
   return (
     <>
       <Layout navitems={navigation}>
@@ -13,12 +16,14 @@ function About({ page, navigation }) {
           <Banner bannerdata={page.banner[0] || []} />
         </div>
         <div className="container">
+          { page?.two_column?.length && page.two_column.map( (section, index) =>
+            <TwoColumnSection key={index} section={section} index={index}  />
+          )}
           <section className="row description my-3">
-            <div className="col-md-8 m-auto desc lead text-center">
-              <div dangerouslySetInnerHTML={{ __html: page.content }} />
+            <div className="col-md-8 m-auto desc lead text-justify">
+              <div dangerouslySetInnerHTML={{ __html: pageContent }} />
             </div>
           </section>
-          <TwoColumnSection sections={page.two_column} />
         </div>
       </Layout>
     </>

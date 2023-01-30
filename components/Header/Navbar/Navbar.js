@@ -4,18 +4,8 @@ import { useRouter } from "next/router";
 import NavItem from "./NavItem";
 import Stack from "@/sdk-plugins/index";
 import { getSpecificEntryKeyValue } from "@/sdk-plugins/index";
-
-// const menu = [
-//   { lable: "Home", link: "/" },
-//   { lable: "Properties", link: "/properties" },
-//   { lable: "Sale", link: "/sale" },
-//   { lable: "About", link: "/about" },
-//   { lable: "Contact", link: "/contact" },
-// ];
-// const rightMenu = [
-//   { lable: "Signin", link: "/signin", icon: "fa fa-user" },
-//   { lable: "Signup", link: "/signup", icon: "fa fa-user-plus" },
-// ];
+import Image from "next/image";
+import logo from "@/public/logo.png"
 
 function Navbar({navitems}) {
   
@@ -25,8 +15,9 @@ function Navbar({navitems}) {
       <div className="">
         <nav className="navbar navbar-expand-lg bg-primary">
           <div className="container">
-            <Link className="navbar-brand fw-bold text-white" href="/">
-              Sandy's Real Estate Engency
+            <Link className="navbar-brand fw-bold text-white brand-logo" href="/">
+              <i class="fa fa-home mx-1"></i>
+              CITY REAL ESTATE
             </Link>
             <button
               className="navbar-toggler"

@@ -15,18 +15,18 @@ function Banner({ bannerdata }) {
       >
         <div className="page-header-ui-content py-5 position-relative text-white">
           <div className="container px-5">
-            <div className="row gx-5 justify-content-center">
+            <div className="row gx-5 justify-content-center py-lg-5 py-mg-5 ">
               <div className="col-xl-8 col-lg-10 text-center">
                 <h1 className="page-header-ui-title">
                   {bannerdata.banner?.heading}
                 </h1>
-                <p className="page-header-ui-text mb-5">
+                <p className="page-header-ui-text mb-5 lead">
                   {bannerdata.banner?.description}
                 </p>
               </div>
             </div>
             {pathname == "/" && (
-              <div className="row gx-5 justify-content-center">
+              <div className="row gx-5 justify-content-center pb-lg-5 pb-mg-5 ">
                 <div className="col-xl-6 col-lg-8 text-center">
                   <form className="row row-cols-1 row-cols-md-auto g-3 align-items-center">
                     <div className="col flex-grow-1">
